@@ -15,7 +15,4 @@ import SCons.Tool.mingw
 import SCons.Util
 
 def find(env):
-    path = env.WhereIs('gcc')
-    if (path):
-        return path
-    return SCons.Util.WhereIs('gcc')
+    return path if (path := env.WhereIs('gcc')) else SCons.Util.WhereIs('gcc')
